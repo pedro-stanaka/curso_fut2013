@@ -26,6 +26,28 @@
                 }
             }
         }
+
+        function edit($id = null) {
+			$this->Time->id = $id;
+			if ($this->request->is('get')) {
+				$this->request->data = $this->Time->read();
+			} else {
+				if ($this->Time->save($this->request->data)) {
+					$this->Session->setFlash('O Time foi atualizado.');
+					$this->redirect(array('action' => 'index'));
+				}
+			}
+		}
+
+		function delete($id) {
+		    if (!$this->request->is('post')) {
+		        throw new MethodNotAllowedException();
+		    }
+		    if ($this->Time->delete($id)) {
+		        $this->Session->setFlash('O Time com id: ' . $id . ' foi deletado.');
+		        $this->redirect(array('action' => 'index'));
+		    }
+		}
 		
 	}
 
