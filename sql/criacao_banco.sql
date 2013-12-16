@@ -59,3 +59,15 @@ CREATE TABLE `treinadores` (
      ON UPDATE CASCADE   -- On UPDATE reference action
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `tecnicos` (
+  `id` int(10) unsigned  NOT NULL AUTO_INCREMENT,
+  `nome`  VARCHAR(255) NOT NULL,
+  `cpf` CHAR(11) NOT NULL ,
+  `data_de_nascimento`   DATE,
+  `salario` NUMERIC(7,2) NOT NULL DEFAULT 0,
+  `anos_de_experiencia`   INT(10),
+  `created` DATETIME NOT NULL,
+  `modified` DATETIME NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
