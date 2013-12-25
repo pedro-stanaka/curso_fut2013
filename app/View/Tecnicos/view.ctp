@@ -16,6 +16,16 @@
 			<?php echo h($tecnico['Tecnico']['cpf']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Login'); ?></dt>
+		<dd>
+			<?php echo h($tecnico['Tecnico']['login']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Senha'); ?></dt>
+		<dd>
+			<?php echo h($tecnico['Tecnico']['senha']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Data De Nascimento'); ?></dt>
 		<dd>
 			<?php echo h($tecnico['Tecnico']['data_de_nascimento']); ?>
@@ -29,16 +39,6 @@
 		<dt><?php echo __('Anos De Experiencia'); ?></dt>
 		<dd>
 			<?php echo h($tecnico['Tecnico']['anos_de_experiencia']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($tecnico['Tecnico']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($tecnico['Tecnico']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>

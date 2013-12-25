@@ -6,6 +6,8 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('nome');
 		echo $this->Form->input('cpf');
+		echo $this->Form->input('login');
+		echo $this->Form->input('senha');
 		echo $this->Form->input('data_de_nascimento');
 		echo $this->Form->input('salario');
 		echo $this->Form->input('anos_de_experiencia');

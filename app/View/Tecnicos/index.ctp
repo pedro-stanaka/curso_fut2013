@@ -5,11 +5,11 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
 			<th><?php echo $this->Paginator->sort('cpf'); ?></th>
+			<th><?php echo $this->Paginator->sort('login'); ?></th>
+			<th><?php echo $this->Paginator->sort('senha'); ?></th>
 			<th><?php echo $this->Paginator->sort('data_de_nascimento'); ?></th>
 			<th><?php echo $this->Paginator->sort('salario'); ?></th>
 			<th><?php echo $this->Paginator->sort('anos_de_experiencia'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($tecnicos as $tecnico): ?>
@@ -17,11 +17,11 @@
 		<td><?php echo h($tecnico['Tecnico']['id']); ?>&nbsp;</td>
 		<td><?php echo h($tecnico['Tecnico']['nome']); ?>&nbsp;</td>
 		<td><?php echo h($tecnico['Tecnico']['cpf']); ?>&nbsp;</td>
+		<td><?php echo h($tecnico['Tecnico']['login']); ?>&nbsp;</td>
+		<td><?php echo h($tecnico['Tecnico']['senha']); ?>&nbsp;</td>
 		<td><?php echo h($tecnico['Tecnico']['data_de_nascimento']); ?>&nbsp;</td>
 		<td><?php echo h($tecnico['Tecnico']['salario']); ?>&nbsp;</td>
 		<td><?php echo h($tecnico['Tecnico']['anos_de_experiencia']); ?>&nbsp;</td>
-		<td><?php echo h($tecnico['Tecnico']['created']); ?>&nbsp;</td>
-		<td><?php echo h($tecnico['Tecnico']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $tecnico['Tecnico']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $tecnico['Tecnico']['id'])); ?>
