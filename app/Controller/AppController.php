@@ -30,4 +30,20 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			'loginAction' => array(
+	            'controller' => 'tecnicos',
+	            'action' => 'login'
+        	),
+        	'authError' => 'Você não pode acessar esta área.',
+			'authenticate' => array(
+	            'Form' => array(
+	            	'userModel' => 'Tecnico',
+	                'fields' => array('username' => 'login', 'password'=>'senha')
+	            )
+	        )
+		)
+	);
 }
