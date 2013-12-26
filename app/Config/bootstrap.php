@@ -70,6 +70,7 @@ Cache::config('default', array('engine' => 'Apc'));
  *
  */
 CakePlugin::load('CakePtbr');
+CakePlugin::load('DebugKit');
 
 
 /**

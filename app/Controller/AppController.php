@@ -31,11 +31,14 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	public $components = array(
+		'DebugKit.Toolbar' => array(
+		    'cache' => array('engine' => 'Apc')),
 		'Session',
 		'Auth' => array(
 			'loginAction' => array(
 	            'controller' => 'tecnicos',
-	            'action' => 'login'
+	            'action' => 'login',
+	            'plugin' => ''
         	),
         	'authError' => 'Você não pode acessar esta área.',
 			'authenticate' => array(

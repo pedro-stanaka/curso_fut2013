@@ -111,8 +111,7 @@ class TecnicosController extends AppController {
 	{
 		if ($this->request->is('post')) {
 
-			if ($this->Auth->login()) {
-				die();
+			if ($this->Auth->login($this->request->data['Tecnico'])) {
 				$this->redirect($this->Auth->redirect());
 			} else {
 				$this->Session->setFlash(_('Login ou senha errada.'));

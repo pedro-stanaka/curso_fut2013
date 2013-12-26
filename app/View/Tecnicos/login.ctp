@@ -1,6 +1,6 @@
 <div class="users form">
 	<div class="alert alert-info"><?= $this->Session->flash('auth'); ?></div>
-	<?= $this->Form->create('User'); ?>
+	<?= $this->Form->create('Tecnico'); ?>
 		<fieldset>
 			<legend>Por favor, digite o login e senha</legend>
 			<?= $this->Form->input('login', array('placeholder'=>'Login', 'label'=>false)); ?>
