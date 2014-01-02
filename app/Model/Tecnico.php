@@ -6,6 +6,7 @@ App::uses('AppModel', 'Model');
  */
 class Tecnico extends AppModel {
 
+	public $displayField = 'nome';
 /**
  * Validation rules
  *

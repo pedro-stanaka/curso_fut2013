@@ -20,6 +20,7 @@
                 
         public function add() {
             if ($this->request->is('post')) {
+            	$this->request->data['Time']['tecnico_id'] = $this->Auth->user('id');
                 if ($this->Time->save($this->request->data)) {
                     $this->Session->setFlash('O time foi cadastrado com sucesso!');
                     $this->redirect(array('action' => 'index'));

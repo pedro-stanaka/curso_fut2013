@@ -46,7 +46,13 @@ class AppController extends Controller {
 	            	'userModel' => 'Tecnico',
 	                'fields' => array('username' => 'login', 'password'=>'senha')
 	            )
-	        )
+	        ),
+	        'authorize' => array('Controller') // Modificado aqui 
 		)
 	);
+
+
+	function beforeFilter() {
+        $this->Auth->allow('index', 'view');
+    }
 }
