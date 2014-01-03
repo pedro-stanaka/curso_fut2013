@@ -9,6 +9,7 @@
         <th>Id</th>
         <th>Nome</th>
         <th>Criado Em</th>
+        <th>Técnico</th>
         <th>Ações</th>
     </tr>
 
@@ -20,6 +21,7 @@
 array('controller' => 'times', 'action' => 'view', $time['Time']['id'])); ?>
         </td>
         <td><?php echo $time['Time']['created']; ?></td>
+        <td><?php echo $time['Time']['tecnico_id']; ?></td>
         <td><?php echo $this->Html->link('Editar', array('action' => 'edit',$time['Time']['id'])); ?>
         
             <?php 

@@ -8,6 +8,11 @@ App::uses('AppController', 'Controller');
  */
 class TecnicosController extends AppController {
 
+	public function beforeFilter()
+	{
+		$this->Auth->allow('add', 'logout'); // Permitir Técnicos se registrarem
+	}
+
 /**
  * Components
  *
@@ -100,4 +105,29 @@ class TecnicosController extends AppController {
 			$this->Session->setFlash(__('The tecnico could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	public function login()
+	{
+		if ($this->request->is('post')) {
+			$tecnico = $this->Tecnico->find('first', array(
+					'conditions'=>array(
+						'login'=>$this->request->data['Tecnico']['login'],
+						'senha'=>AuthComponent::password($this->request->data['Tecnico']['senha'])
+					)
+				));
+			if ($this->Auth->login($tecnico['Tecnico'])) {
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$this->Session->setFlash(_('Login ou senha errada.'));
+			}
+		}
+		
+	}
+
+	public function logout()
+	{
+		$this->redirect($this->Auth->logout());
+	}
+
+}

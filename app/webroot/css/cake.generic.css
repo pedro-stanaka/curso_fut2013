@@ -740,3 +740,12 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+#container #header h1 {
+	float: left;
+}
+
+#container #header a {
+	float: right;
+}
+

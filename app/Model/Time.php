@@ -19,6 +19,10 @@
 	        	'rule'=> 'numeric'
         	)
     	);
+
+    	public function eTreinadoPor($time, $tecnico) {
+    		return $this->field('id', array('id' => $time, 'tecnico_id' => $tecnico)) === $time;
+    	}
 	}
 
 

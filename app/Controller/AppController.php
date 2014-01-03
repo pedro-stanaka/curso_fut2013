@@ -30,4 +30,47 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $components = array(
+		'DebugKit.Toolbar' => array(
+		    'cache' => array('engine' => 'Apc')),
+		'Session',
+		'Auth' => array(
+			'loginRedirect' => array('controller' => 'times', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'tecnicos', 'action' => 'login'),
+			'loginAction' => array(
+	            'controller' => 'tecnicos',
+	            'action' => 'login',
+	            'plugin' => ''
+        	),
+        	'authError' => 'Você não pode acessar esta área.',
+			'authenticate' => array(
+	            'Form' => array(
+	            	'userModel' => 'Tecnico',
+	                'fields' => array('username' => 'login', 'password'=>'senha')
+	            )
+	        ),
+	        'authorize' => array('Controller') // Modificado aqui 
+		)
+	);
+
+	public function beforeFilter($value='')
+	{
+		$this->Auth->allow('index', 'view');
+	}
+
+    public function isAuthorized($tecnico)
+    {
+    	if ($this->action == 'index' || $this->action == 'view') {
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
+
+
 }
+
+
+
+
+
