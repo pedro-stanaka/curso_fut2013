@@ -50,6 +50,21 @@
 		    }
 		}
 		
+
+		public function isAuthorized($tecnico) {
+		    if (!parent::isAuthorized($tecnico)) {
+		        if ($this->action === 'add') {
+		            // Todos os técnicos podem adicionar times
+		            return true;
+		        }
+		        if (in_array($this->action, array('edit', 'delete'))) {
+		            $timeId = $this->request->params['pass'][0];
+		            return $this->Time->eTreinadoPor($timeId, $tecnico['id']);
+		        }
+		    }
+		    return false;
+		}
+		
 	}
 
 

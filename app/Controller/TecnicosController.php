@@ -10,7 +10,7 @@ class TecnicosController extends AppController {
 
 	public function beforeFilter()
 	{
-		$this->Auth->allow('add'); // Permitir Técnicos se registrarem
+		$this->Auth->allow('add', 'logout'); // Permitir Técnicos se registrarem
 	}
 
 /**
@@ -110,8 +110,13 @@ class TecnicosController extends AppController {
 	public function login()
 	{
 		if ($this->request->is('post')) {
-
-			if ($this->Auth->login($this->request->data['Tecnico'])) {
+			$tecnico = $this->Tecnico->find('first', array(
+					'conditions'=>array(
+						'login'=>$this->request->data['Tecnico']['login'],
+						'senha'=>AuthComponent::password($this->request->data['Tecnico']['senha'])
+					)
+				));
+			if ($this->Auth->login($tecnico['Tecnico'])) {
 				$this->redirect($this->Auth->redirect());
 			} else {
 				$this->Session->setFlash(_('Login ou senha errada.'));

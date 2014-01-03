@@ -35,6 +35,8 @@ class AppController extends Controller {
 		    'cache' => array('engine' => 'Apc')),
 		'Session',
 		'Auth' => array(
+			'loginRedirect' => array('controller' => 'times', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'tecnicos', 'action' => 'login'),
 			'loginAction' => array(
 	            'controller' => 'tecnicos',
 	            'action' => 'login',
@@ -51,8 +53,24 @@ class AppController extends Controller {
 		)
 	);
 
+	public function beforeFilter($value='')
+	{
+		$this->Auth->allow('index', 'view');
+	}
 
-	function beforeFilter() {
-        $this->Auth->allow('index', 'view');
+    public function isAuthorized($tecnico)
+    {
+    	if ($this->action == 'index' || $this->action == 'view') {
+    		return true;
+    	}else{
+    		return false;
+    	}
     }
+
+
 }
+
+
+
+
+
